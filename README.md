@@ -4,6 +4,12 @@ These guidelines form the foundation for building high quality, scalable applica
 
 This is intended to be a living document that grows and evolves over time. Everyone is encouraged to share their thoughts and contribute to produce the best possible resource.
 
+## Contributing to Projects
+
+Developers are encouraged to reference this guide when contributing to all Portfolium projects. These rules are intended to make our project histories easier to read and our code review workflow more efficient. Eventually, we'll be able to automatically generate meaningful release notes with each deployment.
+
+**[View the guide &rarr;](https://github.com/portfolium/playbook/blob/master/docs/contributing-to-projects.md)**
+
 ## The Frontend Playbook
 
 ### [Frameworks & Libraries](https://github.com/portfolium/playbook/blob/master/docs/frontend/frameworks-libraries.md)
@@ -18,8 +24,8 @@ To ensure all developers are speaking the same language, we have adopted guideli
 
 Projects should be structured using [LIFT](https://angular.io/styleguide#!#04-01) to encourage modularity and allow developers to find code easily. Scripts, templates and stylesheets are grouped together as components, forming the building blocks of a component-based architecture.
 
-### State Management
+### State Management (WIP)
 
-### Build Tools
+### Build Tools (WIP)
 
-### Unit Testing & Continuous Integration
+### Unit Testing & Continuous Integration (WIP)
