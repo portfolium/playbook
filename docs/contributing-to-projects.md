@@ -83,3 +83,16 @@ See: https://github.com/segmentio/analytics.js/issues/527
 
 Fixes PPD-332
 ```
+
+## Opening your PR
+
+When you are ready to have your work peer reviewed before requesting QA (and eventually going to master), you'll open a PR from your branch into the master branch of the project you are working on.
+
+Before doing so, you should:
+* Rebase with master
+* Rebase your own branch to remove uneeded and extranous commit messages
+
+Once you recieve a request during your code review to update or fix code you then:
+* Follow the same conventions as normal commits -- no "clean up" or "oops" messages -- because these commits won't be rebased and will appear in history on master
+* Continue to merge with master daily
+
