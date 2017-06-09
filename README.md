@@ -29,3 +29,7 @@ Projects should be structured using [LIFT](https://angular.io/styleguide#!#04-01
 ### Build Tools (WIP)
 
 ### Unit Testing & Continuous Integration (WIP)
+
+```
+yarn run test
+```
