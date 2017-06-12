@@ -96,3 +96,20 @@ Once you recieve a request during your code review to update or fix code you the
 * Follow the same conventions as normal commits -- no "clean up" or "oops" messages -- because these commits won't be rebased and will appear in history on master
 * Continue to merge with master daily
 
+## Move and update your Jira ticket
+
+Once your PR has been opened, you should move your ticket to the correct swim lane, most like Code Review. However if you code has passed Code Review and it ready for PM/QA you should then move the ticket again.
+
+After moving your ticket, you should be ready to let the PM know they can check it for acceptance. Here is a sample comment you can add to your ticket:
+
+```
+@mark my work is ready for PM acceptence, it will be staged on DEV3
+
+The branches that need to be deployed for this features are:
+WEB: <BRANCH NAME>
+API: <BRANCH NAME> and DOES/DOES NOT require a migration
+EDU: <BRANCH NAME>
+ADMIN: <BRANCH NAME>
+```
+
+
