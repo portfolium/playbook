@@ -98,7 +98,7 @@ Once you recieve a request during your code review to update or fix code you the
 
 ## Move and update your Jira ticket
 
-Once your PR has been opened, you should move your ticket to the correct swim lane, most like Code Review. However if you code has passed Code Review and it ready for PM/QA you should then move the ticket again.
+Once your PR has been opened, you should move your ticket to the correct swim lane, most likely Code Review. However if your code has passed Code Review and it's ready for PM/QA you should then move the ticket again.
 
 After moving your ticket, you should be ready to let the PM know they can check it for acceptance. Here is a sample comment you can add to your ticket:
 
