@@ -103,7 +103,7 @@ Once your PR has been opened, you should move your ticket to the correct swim la
 After moving your ticket, you should be ready to let the PM know they can check it for acceptance. Here is a sample comment you can add to your ticket:
 
 ```
-@mark my work is ready for PM acceptence, it will be staged on DEV3
+@mark my work is ready for PM acceptance, it will be staged on DEV3
 
 The branches that need to be deployed for this features are:
 WEB: <BRANCH NAME>
