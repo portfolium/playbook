@@ -81,7 +81,7 @@ Replace `$window.analytics` with `window.analytics` because analytics isn't set 
 
 See: https://github.com/segmentio/analytics.js/issues/527
 
-Fixes PPD-332
+Fixes ch332
 ```
 
 ## Opening your PR
