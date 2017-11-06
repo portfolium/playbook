@@ -8,7 +8,7 @@ Use a uniform syntax when naming branches. When multiple projects are involved i
 
 **Ticket ID**
 
-A reference to the JIRA ticket associated with the task. This makes it possible for the Github integration in JIRA to link to the branch from the ticket.
+A reference to the Clubhouse ticket associated with the task. This makes it possible for the Github integration in Clubhouse to link to the branch from the ticket.
 
 **Feature Name**
 
@@ -17,7 +17,7 @@ A short description of the feature, formatted in `kebab-case`, that makes it eas
 **Sample Branch Checkout:**
 
 ```
-git checkout -b PPD-332_analytics-user-bug upstream/master
+git checkout -b ch332_analytics-user-bug upstream/master
 ```
 
 ## Git Commit Format
@@ -68,7 +68,7 @@ Just as in the subject, use the imperative, present tense: "change" not "changed
 
 **Footer**
 
-The footer should contain any information about Breaking Changes and is also the place to reference JIRA issues that this commit Closes.
+The footer should contain any information about Breaking Changes and is also the place to reference Clubhouse issues that this commit Closes.
 
 Breaking Changes are intended to highlight (in the ChangeLog) changes that will require community users to modify their code with this commit.
 
@@ -81,7 +81,7 @@ Replace `$window.analytics` with `window.analytics` because analytics isn't set 
 
 See: https://github.com/segmentio/analytics.js/issues/527
 
-Fixes ch332
+Fixes [ch332]
 ```
 
 ## Opening your PR
@@ -96,7 +96,7 @@ Once you recieve a request during your code review to update or fix code you the
 * Follow the same conventions as normal commits -- no "clean up" or "oops" messages -- because these commits won't be rebased and will appear in history on master
 * Continue to merge with master daily
 
-## Move and update your Jira ticket
+## Move and update your Clubhouse ticket
 
 Once your PR has been opened, you should move your ticket to the correct swim lane, most likely Code Review. However if your code has passed Code Review and it's ready for PM/QA you should then move the ticket again.
 
