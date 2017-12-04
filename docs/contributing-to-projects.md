@@ -3,7 +3,7 @@
 Use a uniform syntax when naming branches. When multiple projects are involved in a feature implementation, use matching names.
 
 ```
-<ticket-id>_<feature-name>
+<ticket-id>/<feature-name>
 ```
 
 **Ticket ID**
@@ -17,7 +17,7 @@ A short description of the feature, formatted in `kebab-case`, that makes it eas
 **Sample Branch Checkout:**
 
 ```
-git checkout -b ch332_analytics-user-bug upstream/master
+git checkout -b ch332/analytics-user-bug upstream/master
 ```
 
 ## Git Commit Format
@@ -81,20 +81,20 @@ Replace `$window.analytics` with `window.analytics` because analytics isn't set 
 
 See: https://github.com/segmentio/analytics.js/issues/527
 
-Fixes [ch332]
+Closes [ch332]
 ```
 
 ## Opening your PR
 
-When you are ready to have your work peer reviewed before requesting QA (and eventually going to master), you'll open a PR from your branch into the master branch of the project you are working on.
+When you are ready to have your work peer reviewed before requesting QA (and eventually going to master), you'll open a PR from your branch into the development branch of the project you are working on.
 
 Before doing so, you should:
-* Rebase with master
+* Rebase with development
 * Rebase your own branch to remove uneeded and extranous commit messages
 
 Once you recieve a request during your code review to update or fix code you then:
 * Follow the same conventions as normal commits -- no "clean up" or "oops" messages -- because these commits won't be rebased and will appear in history on master
-* Continue to merge with master daily
+* Continue to merge with development daily
 
 ## Move and update your Clubhouse ticket
 
