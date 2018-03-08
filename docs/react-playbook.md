@@ -1,3 +1,0 @@
-# The React Playbook
-
-WIP
