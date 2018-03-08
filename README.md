@@ -8,7 +8,7 @@ This is intended to be a living document that grows and evolves over time. Every
 
 Developers are encouraged to reference this guide when contributing to all Portfolium projects. These rules are intended to make our project histories easier to read and our code review workflow more efficient. Eventually, we'll be able to automatically generate meaningful release notes with each deployment.
 
-**[View the guide &rarr;](https://github.com/portfolium/playbook/blob/master/docs/contributing-to-projects.md)**
+**[View the guide &rarr;](hhttps://github.com/portfolium/playbook/tree/master/contributing-to-projects)**
 
 ## The Frontend Playbook
 
