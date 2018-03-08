@@ -4,23 +4,64 @@
 
 1. [Coding Style](#coding-style)
 1. [Build Process](#build-process)
+1. [App Structure & Layout](#app-structure--layout)
+1. [Unit Testing](#unit-testing)
+1. [UI Library](#ui-library)
+1. [Data Fetching](#data-fetching)
+1. [Global State Management](#global-state-management)
+1. [CSS Style](#css-style)
+1. [Type Checking](#type-checking)
 
 ## Coding Style
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum ornare tempus. Praesent viverra a quam id cursus. Etiam malesuada velit non tincidunt tempor. Nullam eget eros quis libero ullamcorper vehicula.
-
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ut luctus felis. Fusce suscipit neque eu consequat dictum. Ut egestas fermentum dolor eu volutpat.
-
-Maecenas velit dui, faucibus quis gravida id, porttitor sit amet augue. Nullam luctus tincidunt leo.
+WIP
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Build Process
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum ornare tempus. Praesent viverra a quam id cursus. Etiam malesuada velit non tincidunt tempor. Nullam eget eros quis libero ullamcorper vehicula.
+WIP
 
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ut luctus felis. Fusce suscipit neque eu consequat dictum. Ut egestas fermentum dolor eu volutpat.
+**[⬆ back to top](#table-of-contents)**
 
-Maecenas velit dui, faucibus quis gravida id, porttitor sit amet augue. Nullam luctus tincidunt leo.
+## App Structure & Layout
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## Unit Testing
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## UI Library
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## Data Fetching
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## Global State Management
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## CSS Style
+
+WIP
+
+**[⬆ back to top](#table-of-contents)**
+
+## Type Checking
+
+WIP
 
 **[⬆ back to top](#table-of-contents)**
