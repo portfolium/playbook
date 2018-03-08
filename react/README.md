@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-    1. [Coding Style](#coding-style)
-    1. [Build Process](#build-process)
+1. [Coding Style](#coding-style)
+1. [Build Process](#build-process)
 
 ## Coding Style
 
