@@ -1,3 +1,0 @@
-# The Angular Playbook
-
-WIP
