@@ -122,21 +122,6 @@ To install Prettier choose your IDE below and follow the instructions to "Format
   }
   ```
 
-* **Props Naming**: Avoid using DOM component prop names for different purposes.
-
-  > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
-
-  ```jsx
-  // bad
-  <MyComponent style="fancy" />
-
-  // bad
-  <MyComponent className="fancy" />
-
-  // good
-  <MyComponent variant="fancy" />
-  ```
-
 * **Always define explicit defaultProps for all non-required props.**
 
   > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
