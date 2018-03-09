@@ -69,6 +69,24 @@ WIP
 
 ## Type Checking
 
-WIP
+For our type checking we are using [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html).
+
+PropTypes exports a range of validators that can be used to make sure the data you receive is valid. In this example, we’re using PropTypes.string. When an invalid value is provided for a prop, a warning will be shown in the JavaScript console. For performance reasons, propTypes is only checked in development mode.
+
+```
+import PropTypes from 'prop-types';
+
+class Greeting extends React.Component {
+  render() {
+    return (
+      <h1>Hello, {this.props.name}</h1>
+    );
+  }
+}
+
+Greeting.propTypes = {
+  name: PropTypes.string
+};
+```
 
 **[⬆ back to top](#table-of-contents)**
