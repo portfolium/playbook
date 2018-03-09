@@ -288,7 +288,28 @@ WIP
 
 ## CSS Style
 
-WIP
+The element returned by the `render` method should have a `className` matching the name of the component (or otherwise identifying the component). This is useful for "namespacing" any CSS/SASS that go with the component. For example:
+
+```jsx
+// Foobar.js
+import React from "react";
+import "foobar.scss";
+
+class Greeting extends React.Component {
+  render() {
+    return <div className="foobar">Foobar</div>;
+  }
+}
+
+export default Foobar;
+```
+
+```scss
+// Foobar.scss
+.foobar {
+  // Rules defined here will only apply to Foobar elements
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
