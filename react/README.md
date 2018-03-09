@@ -14,9 +14,249 @@
 
 ## Coding Style
 
-WIP
+Our coding style is enforced from a tool called Prettier. This tool will auto-format your code correctly based on the react community style guidelines. For a list of the rules this enforces [please see this link](https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules)
 
-**[⬆ back to top](#table-of-contents)**
+To install Prettier choose your IDE below and follow the instructions to "Format on Save":
+
+* [VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* [Atom](https://atom.io/packages/prettier-atom)
+
+### Class vs `React.createClass` vs stateless
+
+* If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+
+  ```jsx
+  // bad
+  const Listing = React.createClass({
+    // ...
+    render() {
+      return <div>{this.state.hello}</div>;
+    }
+  });
+
+  // good
+  class Listing extends React.Component {
+    // ...
+    render() {
+      return <div>{this.state.hello}</div>;
+    }
+  }
+  ```
+
+  And if you don't have state or refs, prefer normal functions (not arrow functions) over classes:
+
+  ```jsx
+  // bad
+  class Listing extends React.Component {
+    render() {
+      return <div>{this.props.hello}</div>;
+    }
+  }
+
+  // bad (relying on function name inference is discouraged)
+  const Listing = ({ hello }) => <div>{hello}</div>;
+
+  // good
+  function Listing({ hello }) {
+    return <div>{hello}</div>;
+  }
+  ```
+
+### Naming
+
+* **Extensions**: Use `.jsx` extension for React components.
+* **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+* **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
+
+  ```jsx
+  // bad
+  import reservationCard from "./ReservationCard";
+
+  // good
+  import ReservationCard from "./ReservationCard";
+
+  // bad
+  const ReservationItem = <ReservationCard />;
+
+  // good
+  const reservationItem = <ReservationCard />;
+  ```
+
+* **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+
+  ```jsx
+  // bad
+  import Footer from "./Footer/Footer";
+
+  // bad
+  import Footer from "./Footer/index";
+
+  // good
+  import Footer from "./Footer";
+  ```
+
+* **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
+
+  > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
+
+  ```jsx
+  // bad
+  export default function withFoo(WrappedComponent) {
+    return function WithFoo(props) {
+      return <WrappedComponent {...props} foo />;
+    }
+  }
+
+  // good
+  export default function withFoo(WrappedComponent) {
+    function WithFoo(props) {
+      return <WrappedComponent {...props} foo />;
+    }
+
+    const wrappedComponentName = WrappedComponent.displayName
+      || WrappedComponent.name
+      || 'Component';
+
+    WithFoo.displayName = `withFoo(${wrappedComponentName})`;
+    return WithFoo;
+  }
+  ```
+
+* **Props Naming**: Avoid using DOM component prop names for different purposes.
+
+  > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
+
+  ```jsx
+  // bad
+  <MyComponent style="fancy" />
+
+  // bad
+  <MyComponent className="fancy" />
+
+  // good
+  <MyComponent variant="fancy" />
+  ```
+
+* **Always define explicit defaultProps for all non-required props.**
+
+  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
+
+  ```jsx
+  // bad
+  function SFC({ foo, bar, children }) {
+    return (
+      <div>
+        {foo}
+        {bar}
+        {children}
+      </div>
+    );
+  }
+  SFC.propTypes = {
+    foo: PropTypes.number.isRequired,
+    bar: PropTypes.string,
+    children: PropTypes.node
+  };
+
+  // good
+  function SFC({ foo, bar, children }) {
+    return (
+      <div>
+        {foo}
+        {bar}
+        {children}
+      </div>
+    );
+  }
+  SFC.propTypes = {
+    foo: PropTypes.number.isRequired,
+    bar: PropTypes.string,
+    children: PropTypes.node
+  };
+  SFC.defaultProps = {
+    bar: "",
+    children: null
+  };
+  ```
+
+### Ordering
+
+Ordering for `class extends React.Component`:
+
+1.  optional `static` methods
+1.  `constructor`
+1.  `getChildContext`
+1.  `componentWillMount`
+1.  `componentDidMount`
+1.  `componentWillReceiveProps`
+1.  `shouldComponentUpdate`
+1.  `componentWillUpdate`
+1.  `componentDidUpdate`
+1.  `componentWillUnmount`
+1.  _clickHandlers or eventHandlers_ like `onClickSubmit()` or `onChangeDescription()`
+1.  _getter methods for `render`_ like `getSelectReason()` or `getFooterContent()`
+1.  _optional render methods_ like `renderNavigation()` or `renderProfilePicture()`
+1.  `render`
+
+* How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+
+  ```jsx
+  import React from "react";
+  import PropTypes from "prop-types";
+
+  const propTypes = {
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string
+  };
+
+  const defaultProps = {
+    text: "Hello World"
+  };
+
+  class Link extends React.Component {
+    static methodsAreOk() {
+      return true;
+    }
+
+    render() {
+      return (
+        <a href={this.props.url} data-id={this.props.id}>
+          {this.props.text}
+        </a>
+      );
+    }
+  }
+
+  Link.propTypes = propTypes;
+  Link.defaultProps = defaultProps;
+
+  export default Link;
+  ```
+
+Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
+
+1.  `displayName`
+1.  `propTypes`
+1.  `contextTypes`
+1.  `childContextTypes`
+1.  `mixins`
+1.  `statics`
+1.  `defaultProps`
+1.  `getDefaultProps`
+1.  `getInitialState`
+1.  `getChildContext`
+1.  `componentWillMount`
+1.  `componentDidMount`
+1.  `componentWillReceiveProps`
+1.  `shouldComponentUpdate`
+1.  `componentWillUpdate`
+1.  `componentDidUpdate`
+1.  `componentWillUnmount`
+1.  _clickHandlers or eventHandlers_ like `onClickSubmit()` or `onChangeDescription()`
+1.  _getter methods for `render`_ like `getSelectReason()` or `getFooterContent()`
+1.  _optional render methods_ like `renderNavigation()` or `renderProfilePicture()`
+1.  `render`
 
 ## Build Process
 
@@ -73,14 +313,12 @@ For our type checking we are using [PropTypes](https://reactjs.org/docs/typechec
 
 PropTypes exports a range of validators that can be used to make sure the data you receive is valid. In this example, we’re using PropTypes.string. When an invalid value is provided for a prop, a warning will be shown in the JavaScript console. For performance reasons, propTypes is only checked in development mode.
 
-```
-import PropTypes from 'prop-types';
+```jsx
+import PropTypes from "prop-types";
 
 class Greeting extends React.Component {
   render() {
-    return (
-      <h1>Hello, {this.props.name}</h1>
-    );
+    return <h1>Hello, {this.props.name}</h1>;
   }
 }
 
