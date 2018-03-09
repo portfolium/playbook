@@ -258,7 +258,41 @@ Available Build commands are:
 
 ## App Structure & Layout
 
-WIP
+```
+project
+│   package.json
+│   webpack.config.js
+│
+└───client
+│   │   componentRenderer.jsx
+│   │
+│   └───components
+│   │   │
+│   │   └───button
+│   │       │   button.jsx
+│   │       │   button.scss
+│   │       │   button.test.jsx
+│   │       │   ...
+│   │
+│   └───configs
+│   │   │   polyfills.js
+│   │   │   ...
+│   │
+│   └───containers
+│   │   │   withAnalytics.jsx
+│   │   │   ...
+│   │
+│   └───feature1
+│       │   feat1.jsx
+│       │   ...
+│
+└───public
+│   │
+│   └───dist
+│       │   common.bbd96658a571118f01e5.js
+│       │   main.bbd96658a571118f01e5.js
+│       │   ...
+```
 
 **[⬆ back to top](#table-of-contents)**
 
