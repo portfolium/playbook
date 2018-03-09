@@ -301,15 +301,24 @@ PropTypes exports a range of validators that can be used to make sure the data y
 ```jsx
 import PropTypes from "prop-types";
 
+const propTypes = {
+  name: PropTypes.string
+};
+
+const defaultProps = {
+  text: "World"
+};
+
 class Greeting extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
   }
 }
 
-Greeting.propTypes = {
-  name: PropTypes.string
-};
+Greeting.propTypes = propTypes;
+Greeting.defaultProps = defaultProps;
+
+export default Greeting;
 ```
 
 **[⬆ back to top](#table-of-contents)**
