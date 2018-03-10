@@ -316,7 +316,13 @@ WIP
 
 ## Global State Management
 
-WIP
+Use [Redux](https://redux.js.org/) to manage state in React applications. To reduce boilerplate code and [help manage transformations on cached data](https://redux.js.org/recipes/structuring-reducers/updating-normalized-data), we'll be using a library called [Redux-ORM](https://github.com/tommikaikkonen/redux-orm). The ORM will manage entities from the API, while UI state will live elsewhere in the state tree.
+
+### Resources:
+
+* [Normalizing State Shape](https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape)
+* [Practical Redux](http://blog.isquaredsoftware.com/2016/10/practical-redux-part-1-redux-orm-basics/)
+* [Redux-ORM API Docs](http://tommikaikkonen.github.io/redux-orm/index.html)
 
 **[⬆ back to top](#table-of-contents)**
 
