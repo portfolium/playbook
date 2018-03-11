@@ -8,7 +8,7 @@
 1.  [Unit Testing](#unit-testing)
 1.  [UI Library](#ui-library)
 1.  [Data Fetching](#data-fetching)
-1.  [Global State Management](#global-state-management)
+1.  [State Management](#state-management)
 1.  [CSS Style](#css-style)
 1.  [Type Checking](#type-checking)
 
@@ -310,19 +310,79 @@ WIP
 
 ## Data Fetching
 
-WIP
+* Use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for making asynchronous network requests. Be sure to implement polyfills for any supported browsers that are not compatible.
+
+* Use [Redux Thunk](https://github.com/gaearon/redux-thunk) to abstract network logic out of UI components.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Global State Management
+## State Management
 
-Use [Redux](https://redux.js.org/) to manage state in React applications. To reduce boilerplate code and [help manage transformations on cached data](https://redux.js.org/recipes/structuring-reducers/updating-normalized-data), we'll be using a library called [Redux-ORM](https://github.com/tommikaikkonen/redux-orm). The ORM will manage entities from the API, while UI state will live elsewhere in the state tree.
+* Use [Redux](https://redux.js.org/) to manage state in React applications.
 
-### Resources:
+  > Why? Redux offers a predictable mechanism to store and mutate complex application state. The tooling provides an excellent developer experience, and the architecture encourages testability.
 
-* [Normalizing State Shape](https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape)
-* [Practical Redux](http://blog.isquaredsoftware.com/2016/10/practical-redux-part-1-redux-orm-basics/)
-* [Redux-ORM API Docs](http://tommikaikkonen.github.io/redux-orm/index.html)
+### Redux Actions
+
+* Use the [Flux Standard Action](https://github.com/redux-utilities/flux-standard-action) format for structuring Redux actions. In brief:
+
+  An action MUST
+
+  * be a plain JavaScript object.
+  * have a type property.
+
+  An action MAY
+
+  * have an error property.
+  * have a payload property.
+  * have a meta property.
+
+  An action MUST NOT include properties other than type, payload, error, and meta.
+
+* Always use an object for the payload property
+
+  ```
+  // bad
+  dispatch({
+      type: DELETE_TODO,
+      payload: '1',
+  });
+
+  // good
+  dispatch({
+      type: DELETE_TODO,
+      payload: {
+          todoId: '1',
+      },
+  });
+  ```
+
+* Always define action types as string constants:
+
+  ```
+  // bad
+  dispatch({
+      type: 'LOAD_DATA',
+  });
+
+  // good
+  const LOAD_DATA = 'LOAD_DATA';
+
+  dispatch({
+      type: LOAD_DATA,
+  });
+  ```
+
+### Global Object Cache
+
+* Use [Redux-ORM](https://github.com/tommikaikkonen/redux-orm) to manage relational data. Cached objects should never be duplicated on the client, regardless of how the REST responses are structured. This will cut down on memory footprint and make global updates much easier. Keep UI state separate from relational data.
+
+  **Learn More:**
+
+  * [Normalizing State Shape](https://redux.js.org/recipes/structuring-reducers/normalizing-state-shape)
+  * [Updating Normalized Data](https://redux.js.org/recipes/structuring-reducers/updating-normalized-data)
+  * [Practical Redux](http://blog.isquaredsoftware.com/2016/10/practical-redux-part-1-redux-orm-basics/)
+  * [Redux-ORM API Docs](http://tommikaikkonen.github.io/redux-orm/index.html)
 
 **[⬆ back to top](#table-of-contents)**
 
