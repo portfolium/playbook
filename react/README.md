@@ -298,7 +298,111 @@ project
 
 ## Unit Testing
 
-WIP
+For unit testing, we are using [Jest](https://facebook.github.io/jest/) with [Enzyme](https://github.com/airbnb/enzyme)
+You can always run all the unit tests by doing:
+* `yarn run`
+
+[Shallow rendering](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md) is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components
+
+Shallow rendering renders only component itself without its children. So if you change something in a child component it won’t change shallow output of your component. Or a bug, introduced to a child component, won’t break your component’s test. It also doesn’t require DOM.
+
+For example this component:
+
+```
+const ButtonWithIcon = ({icon, children}) => (
+    <button><Icon icon={icon} />{children}</button>
+);
+```
+Will be rendered by React like this:
+```
+<button>
+    <i class="icon icon_coffee"></i>
+    Hello Jest!
+</button>
+```
+But like this with shallow rendering:
+```
+<button>
+    <Icon icon="coffee" />
+    Hello Jest!
+</button>
+```
+Note that the Icon component was not rendered.
+
+Testing basic component rendering
+
+That’s enough for most non-interactive components:
+```
+test('render a label', () => {
+    const wrapper = shallow(
+        <Label>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+
+test('render a small label', () => {
+    const wrapper = shallow(
+        <Label small>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+
+test('render a grayish label', () => {
+    const wrapper = shallow(
+        <Label light>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+```
+
+Full Example:
+
+```jsx
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Button from './button.jsx';
+
+configure({ adapter: new Adapter() });
+
+describe('Button', () => {
+    let props;
+    let mountedButton;
+    const mountButton = () => {
+        if (!mountedButton) {
+            mountedButton = shallow(<Button {...props} />);
+        }
+        return mountedButton;
+    };
+
+    beforeEach(() => {
+        props = {
+            text: 'Default text',
+            onClick: undefined,
+        };
+        mountedButton = undefined;
+    });
+
+    it('always renders a button', () => {
+        const btn = mountButton().find('button');
+        expect(btn.length).toEqual(1);
+    });
+
+    describe('when `text` is defined', () => {
+        beforeEach(() => {
+            props.text = 'Click me';
+        });
+
+        it('sets the button text', () => {
+            const btn = mountButton()
+                .find('button')
+                .first();
+            expect(btn.text()).toEqual('Click me');
+        });
+    });
+});
+```
+
 
 **[⬆ back to top](#table-of-contents)**
 
