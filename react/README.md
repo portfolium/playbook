@@ -308,20 +308,20 @@ Shallow rendering renders only component itself without its children. So if you 
 
 For example this component:
 
-```
+```jsx
 const ButtonWithIcon = ({icon, children}) => (
     <button><Icon icon={icon} />{children}</button>
 );
 ```
 Will be rendered by React like this:
-```
+```jsx
 <button>
     <i class="icon icon_coffee"></i>
     Hello Jest!
 </button>
 ```
 But like this with shallow rendering:
-```
+```jsx
 <button>
     <Icon icon="coffee" />
     Hello Jest!
@@ -329,10 +329,10 @@ But like this with shallow rendering:
 ```
 Note that the Icon component was not rendered.
 
-Testing basic component rendering
+### Testing basic component rendering
 
 That’s enough for most non-interactive components:
-```
+```jsx
 test('render a label', () => {
     const wrapper = shallow(
         <Label>Hello Jest!</Label>
@@ -355,7 +355,7 @@ test('render a grayish label', () => {
 });
 ```
 
-Full Example:
+### Full Example:
 
 ```jsx
 import React from 'react';
