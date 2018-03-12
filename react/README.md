@@ -4,7 +4,7 @@
 
 1.  [Coding Style](#coding-style)
 1.  [Build Process](#build-process)
-1.  [App Structure & Layout](#app-structure--layout)
+1.  [App Structure & Layout](#app-structure-layout)
 1.  [Unit Testing](#unit-testing)
 1.  [UI Library](#ui-library)
 1.  [Data Fetching](#data-fetching)
@@ -300,6 +300,7 @@ project
 
 For unit testing, we are using [Jest](https://facebook.github.io/jest/) with [Enzyme](https://github.com/airbnb/enzyme)
 You can always run all the unit tests by doing:
+
 * `yarn run`
 
 [Shallow rendering](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md) is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components
@@ -309,106 +310,122 @@ Shallow rendering renders only component itself without its children. So if you 
 For example this component:
 
 ```jsx
-const ButtonWithIcon = ({icon, children}) => (
-    <button><Icon icon={icon} />{children}</button>
+const ButtonWithIcon = ({ icon, children }) => (
+  <button>
+    <Icon icon={icon} />
+    {children}
+  </button>
 );
 ```
+
 Will be rendered by React like this:
+
 ```jsx
 <button>
-    <i class="icon icon_coffee"></i>
-    Hello Jest!
+  <i class="icon icon_coffee" />
+  Hello Jest!
 </button>
 ```
+
 But like this with shallow rendering:
+
 ```jsx
 <button>
-    <Icon icon="coffee" />
-    Hello Jest!
+  <Icon icon="coffee" />
+  Hello Jest!
 </button>
 ```
+
 Note that the Icon component was not rendered.
 
 ### Testing basic component rendering
 
 That’s enough for most non-interactive components:
+
 ```jsx
-test('render a label', () => {
-    const wrapper = shallow(
-        <Label>Hello Jest!</Label>
-    );
-    expect(wrapper).toMatchSnapshot();
+test("render a label", () => {
+  const wrapper = shallow(<Label>Hello Jest!</Label>);
+  expect(wrapper).toMatchSnapshot();
 });
 
-test('render a small label', () => {
-    const wrapper = shallow(
-        <Label small>Hello Jest!</Label>
-    );
-    expect(wrapper).toMatchSnapshot();
+test("render a small label", () => {
+  const wrapper = shallow(<Label small>Hello Jest!</Label>);
+  expect(wrapper).toMatchSnapshot();
 });
 
-test('render a grayish label', () => {
-    const wrapper = shallow(
-        <Label light>Hello Jest!</Label>
-    );
-    expect(wrapper).toMatchSnapshot();
+test("render a grayish label", () => {
+  const wrapper = shallow(<Label light>Hello Jest!</Label>);
+  expect(wrapper).toMatchSnapshot();
 });
 ```
 
 ### Full Example:
 
 ```jsx
-import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import Button from './button.jsx';
+import React from "react";
+import { configure, shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import Button from "./button.jsx";
 
 configure({ adapter: new Adapter() });
 
-describe('Button', () => {
-    let props;
-    let mountedButton;
-    const mountButton = () => {
-        if (!mountedButton) {
-            mountedButton = shallow(<Button {...props} />);
-        }
-        return mountedButton;
+describe("Button", () => {
+  let props;
+  let mountedButton;
+  const mountButton = () => {
+    if (!mountedButton) {
+      mountedButton = shallow(<Button {...props} />);
+    }
+    return mountedButton;
+  };
+
+  beforeEach(() => {
+    props = {
+      text: "Default text",
+      onClick: undefined
     };
+    mountedButton = undefined;
+  });
 
+  it("always renders a button", () => {
+    const btn = mountButton().find("button");
+    expect(btn.length).toEqual(1);
+  });
+
+  describe("when `text` is defined", () => {
     beforeEach(() => {
-        props = {
-            text: 'Default text',
-            onClick: undefined,
-        };
-        mountedButton = undefined;
+      props.text = "Click me";
     });
 
-    it('always renders a button', () => {
-        const btn = mountButton().find('button');
-        expect(btn.length).toEqual(1);
+    it("sets the button text", () => {
+      const btn = mountButton()
+        .find("button")
+        .first();
+      expect(btn.text()).toEqual("Click me");
     });
-
-    describe('when `text` is defined', () => {
-        beforeEach(() => {
-            props.text = 'Click me';
-        });
-
-        it('sets the button text', () => {
-            const btn = mountButton()
-                .find('button')
-                .first();
-            expect(btn.text()).toEqual('Click me');
-        });
-    });
+  });
 });
 ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
 ## UI Library
 
-WIP
+* Use [React-Bootstrap](https://react-bootstrap.github.io/) for any project that uses the Bootstrap UI framework.
+
+  > Why? To re-use style overrides and avoid writing custom components for basic functionality.
+
+* If you end up needing to wrap a React-Bootstrap component, you should most likely create a custom component.
+
+  > Why? We should be able to easily replace and/or remove React-Bootstrap as a dependency.
+
+* When a task requires custom components, architect them for re-usability whenever possible. Place the code for these components in the global `/components` directory for your project.
+
+  > Why? We will be creating a standalone component repository for Portfolium that will be shared across all React projects. WIP
+
+* When writing a re-usable component, be sure to cover all primary use cases and as many edge cases as you can identify with a [unit test](#unit-testing).
+
+  > Why? Code quality. This should also force you to think through all the use cases of your component and help determine whether you're satisfying the single responsibility principle.
 
 **[⬆ back to top](#table-of-contents)**
 
