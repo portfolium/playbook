@@ -264,15 +264,19 @@ project
 │   webpack.config.js
 │
 └───client
-│   │   componentRenderer.jsx
+│   │
+│   └───actions
+│   │   │   feature1Actions.js
+│   │   │   ...
 │   │
 │   └───components
 │   │   │
-│   │   └───button
-│   │       │   button.jsx
-│   │       │   button.scss
-│   │       │   button.test.jsx
-│   │       │   ...
+│   │   └───Button
+│   │   │   │   Button.jsx
+│   │   │   │   Button.scss
+│   │   │   │   Button.test.jsx
+│   │   │
+│   │   │   ...
 │   │
 │   └───configs
 │   │   │   polyfills.js
@@ -283,8 +287,36 @@ project
 │   │   │   ...
 │   │
 │   └───feature1
-│       │   feat1.jsx
-│       │   ...
+│   │   │
+│   │   └───Feature1Child
+│   │   │   │   Feature1Child.jsx
+│   │   │   │   Feature1Child.scss
+│   │   │   │   Feature1Child.test.jsx
+│   │   │
+│   │   │   Feature1Container.jsx
+│   │   │   ...
+│   │
+│   └───middleware
+│   │   │   callAPIMiddleware.js
+│   │   │   ...
+│   │
+│   └───models
+│   │   │   orm.js
+│   │   │   feature1Models.js
+│   │   │   ...
+│   │
+│   └───reducers
+│   │   │   ormReducer.js
+│   │   │   feature1Reducer.js
+│   │   │   rootReducer.js
+│   │   │   ...
+│   │
+│   └───selectors
+│   │   │   feature1Selectors.js
+│   │   │   ...
+│   │
+│   │   EntrypointRenderer.jsx
+│   │   index.js
 │
 └───public
 │   │
