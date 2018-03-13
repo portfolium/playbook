@@ -4,7 +4,7 @@
 
 1.  [Coding Style](#coding-style)
 1.  [Build Process](#build-process)
-1.  [App Structure & Layout](#app-structure-layout)
+1.  [App Structure & Layout](#app-structure--layout)
 1.  [Unit Testing](#unit-testing)
 1.  [UI Library](#ui-library)
 1.  [Data Fetching](#data-fetching)
