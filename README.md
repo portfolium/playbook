@@ -10,7 +10,11 @@ Developers are encouraged to reference this guide when contributing to all Portf
 
 **[View the guide &rarr;](https://github.com/portfolium/playbook/tree/master/contributing-to-projects)**
 
-## The Angular Playbook
+## The Frontend Playbook
+
+**[View the guide &rarr;](https://github.com/portfolium/playbook/tree/master/frontend)**
+
+## The AngularJS Playbook
 
 **[View the guide &rarr;](https://github.com/portfolium/playbook/tree/master/angular-js)**
 
