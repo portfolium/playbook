@@ -333,7 +333,7 @@ project
 For unit testing, we are using [Jest](https://facebook.github.io/jest/) with [Enzyme](https://github.com/airbnb/enzyme)
 You can always run all the unit tests by doing:
 
-* `yarn run`
+* `yarn test`
 
 [Shallow rendering](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md) is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components
 
@@ -438,6 +438,12 @@ describe("Button", () => {
   });
 });
 ```
+
+### Test Debugging
+
+[.debug()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/debug.html)
+
+```console.log(mountedComponent.debug())```
 
 **[⬆ back to top](#table-of-contents)**
 
