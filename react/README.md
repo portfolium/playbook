@@ -21,10 +21,6 @@ To install Prettier choose your IDE below and follow the instructions to "Format
 * [VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 * [Atom](https://atom.io/packages/prettier-atom)
 
-### Line Spacing
-
-All projects must use three (3) spaces. NO TABS!
-
 ### Class vs `React.createClass` vs stateless
 
 * If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
