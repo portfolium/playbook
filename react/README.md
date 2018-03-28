@@ -245,7 +245,7 @@ Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com
 
 ## Build Process
 
-Our build process relies on [Webpack](https://github.com/webpack/webpack/_) to transpile our assets (jsx, js, sass, etc) into a proper converted files for browsers. We rely on [BabelJS](https://babeljs.io/) to write ES2015+ JS, [PostCSS](http://postcss.org/) to autoprefix CSS and [ESLint](https://eslint.org/) to lint for errors.
+Our build process relies on [Webpack](https://github.com/webpack/webpack) to transpile our assets (jsx, js, sass, etc) into a proper converted files for browsers. We rely on [BabelJS](https://babeljs.io/) to write ES2015+ JS, [PostCSS](http://postcss.org/) to autoprefix CSS and [ESLint](https://eslint.org/) to lint for errors.
 
 Available Build commands are:
 
