@@ -8,7 +8,9 @@ Use a uniform syntax when naming branches. When multiple projects are involved i
 
 **Ticket ID**
 
-A reference to the Clubhouse ticket associated with the task. This makes it possible for the Github integration in Clubhouse to link to the branch from the ticket.
+A reference to the Jira or Clubhouse ticket associated with the task. This makes it possible for the Github integration in Jira or Clubhouse to link to the branch from the ticket.
+
+New Jira tickets ids must start with **PD** for `Product Development` for example ```PF-4```
 
 **Feature Name**
 
@@ -68,7 +70,7 @@ Just as in the subject, use the imperative, present tense: "change" not "changed
 
 **Footer**
 
-The footer should contain any information about Breaking Changes and is also the place to reference Clubhouse issues that this commit Closes.
+The footer should contain any information about Breaking Changes and is also the place to reference Jira or Clubhouse issues that this commit Closes.
 
 Breaking Changes are intended to highlight (in the ChangeLog) changes that will require community users to modify their code with this commit.
 
@@ -96,7 +98,7 @@ Once you recieve a request during your code review to update or fix code you the
 * Follow the same conventions as normal commits -- no "clean up" or "oops" messages -- because these commits won't be rebased and will appear in history on master
 * Continue to merge with development daily
 
-## Move and update your Clubhouse ticket
+## Move and update your Jira or Clubhouse ticket
 
 Once your PR has been opened, you should move your ticket to the correct swim lane, most likely Code Review. However if your code has passed Code Review and it's ready for PM/QA you should then move the ticket again.
 
