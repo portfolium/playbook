@@ -10,7 +10,7 @@ Use a uniform syntax when naming branches. When multiple projects are involved i
 
 A reference to the Jira or Clubhouse ticket associated with the task. This makes it possible for the Github integration in Jira or Clubhouse to link to the branch from the ticket.
 
-New Jira tickets ids must start with **PD** for `Product Development` for example ```PF-4```
+New Jira tickets ids must start with ```PD``` for `Product Development` for example ```PD-4```
 
 **Feature Name**
 
