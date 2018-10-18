@@ -19,7 +19,7 @@ A short description of the feature, formatted in `kebab-case`, that makes it eas
 **Sample Branch Checkout:**
 
 ```
-git checkout -b ch332/analytics-user-bug upstream/master
+git checkout -b PD-43/analytics-user-bug upstream/master
 ```
 
 ## Git Commit Format
