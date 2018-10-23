@@ -86,6 +86,22 @@ See: https://github.com/segmentio/analytics.js/issues/527
 Closes [ch332]
 ```
 
+## Automated Tests
+
+Prior to opening a PR you must write the best suite of automated tests possible given the current state of the automated testing platform available to developers at Portfolium. As the state of the automated testing platform is updated changes will be recorded here.
+
+For all UI components, developers are required to create a Mabl test to verify the core functionality of the feature can be executed through the test. All data required for the test should be staged on the QA database. If the test requires the manipulation of data, the test should restore the data to the original state after asserting the feature in question. Tests should be grouped by Platform and then by Feature. Naming conventions for platforms and features TBD. (Estimated 10/31/2018)
+
+For all API endpoints, developers should write an appropriate POSTMAN test to verify the endpoint performs as expected. Remember, pre and post scripts can be attached to endpoints to stage and destory data to avoid polluting the database. 
+
+Example:
+To test submitting a course assignment, stage the data on QA such that you can login as the user and be already enrolled in the course. Navigate to the course assignment page. Submit the course assignment. Assert the page has changed to the submitted assignment state. Then revert the data to the original state by Unsubmitting the assignment. 
+
+While this solution is not perfect it will serve as a starting point for our automated testing platform. 
+
+Remember, data on the QA database must be treated as sacrosanct for these tests and can not be modified. If you modify data and disrupts a test you will be laughed at. 
+
+
 ## Opening your PR
 
 When you are ready to have your work peer reviewed before requesting QA (and eventually going to master), you'll open a PR from your branch into the development branch of the project you are working on.
