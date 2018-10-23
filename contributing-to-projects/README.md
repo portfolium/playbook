@@ -92,6 +92,8 @@ Prior to opening a PR you must write the best suite of automated tests possible 
 
 For all UI components, developers are required to create a Mabl test to verify the core functionality of the feature can be executed through the test. All data required for the test should be staged on the QA database. If the test requires the manipulation of data, the test should restore the data to the original state after asserting the feature in question. Tests should be grouped by Platform and then by Feature. Naming conventions for platforms and features TBD. (Estimated 10/31/2018)
 
+NOTE: All Mabl test flows should be approximately 6 steps to increase code reuse. Most Mabl tests will include a few small flows (login, navigate to page X, etc.) and then a new flow to verify the feature created. Expect your flows to be reused by other tests in the environment.
+
 For all API endpoints, developers should write an appropriate POSTMAN test to verify the endpoint performs as expected. Remember, pre and post scripts can be attached to endpoints to stage and destory data to avoid polluting the database. 
 
 Example:
@@ -101,6 +103,7 @@ While this solution is not perfect it will serve as a starting point for our aut
 
 Remember, data on the QA database must be treated as sacrosanct for these tests and can not be modified. If you modify data and disrupts a test you will be laughed at. 
 
+During the Code Review process of the pull request the automated tests will be reviewed to determine if they meet these guidlines and appropriately test the feature you have created. 
 
 ## Opening your PR
 
