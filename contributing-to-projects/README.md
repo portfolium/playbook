@@ -133,4 +133,6 @@ EDU: <BRANCH NAME>
 ADMIN: <BRANCH NAME>
 ```
 
+## Documentation
 
+Prior to starting work on a ticket, developers should review all documentation associated with the ticket to understand the purpose of the ticket in regards to the project goals. All tickets in JIRA are associated with Epics and each Epic is associated with Confluence pages which document the project goals. To review the documentation, first open the ticket in JIRA. Then click on the Epic Link in the right side of the ticket near the bottom. You will then be taken to the landing page for the Epic. Above the comments section you will find a section titled 'Issue Links' which contains links to the documentation on Confluence. If the ticket you are working on does not have documentation please notify the Product department immediately. 
